@@ -8,6 +8,14 @@ public class Token {
 	private int userID;
 	private String dateAndTime;
 	
+	
+
+	/**
+	 * 
+	 */
+	public Token() {
+		
+	}
 
 	/**
 	 * @return the tokenId

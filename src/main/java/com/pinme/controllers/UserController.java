@@ -1,7 +1,11 @@
 package com.pinme.controllers;
 
+import java.security.MessageDigest;
+
 import com.pinme.dao.UserDao;
+
 import com.pinme.model.User;
+import com.pinme.util.Encrypt;
 
 /**
  * @author Shivanagesh Chandra Mar 7, 2016 11:06:59 PM
@@ -29,7 +33,8 @@ public class UserController {
 	}
 	
 	public boolean authenticate(String email,String password){
-		if(user.getUserByEmail(email, password)	!= null){
+		String passwordHash = Encrypt.getHash(password);
+		if(user.getUserByEmail(email, passwordHash)	!= null){
 			return true;
 		}else{
 			return false;
@@ -37,15 +42,13 @@ public class UserController {
 	}
 	
 	public User getUser(String email,String password){
-		return user.getUserByEmail(email, password);
+		String passwordHash = Encrypt.getHash(password);
+		return user.getUserByEmail(email, passwordHash);
 	}
 	
 	public int addUser(User newUser){
+		newUser.setPassword(Encrypt.getHash(newUser.getPassword()));
 		return user.addUser(newUser);
 	}
-	
-	
-	
-
 
 }

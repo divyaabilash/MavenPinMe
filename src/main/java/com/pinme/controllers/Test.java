@@ -31,6 +31,7 @@ public class Test {
 		User us = new User("Shivangesh", "Chandra", "123456", "ch.shivanagesh@gmail.com", "848-333-1895");
 		User us1= new User("Divya", "Chandra", "123456", "divya@gmail.com", "848-333-1895");
 		int userId = UserController.getInstance().addUser(us);
+		int userId1 = UserController.getInstance().addUser(us1);
 		
 		
 		Event ev = new Event("03-12-2016 11:15:00 AM", "03-12-2016 11:15:00 PM", "food distribution", -1, false, -1, "Free meal", userId, categoryId);
@@ -48,9 +49,15 @@ public class Test {
 		EventController.getInstance().createEvent(ad, categoryId, ev2);
 
 		System.out.println("*************");
+		System.out.println(userId);
+		System.out.println(userId1);
+		
 		System.out.println(EventController.getInstance().getEvents());
 		System.out.println("----------------------");
 		EventController.getInstance().pinEvent(userId, EventId);
+	}
+	public static void main(String[] args){
+		loadData();
 	}
 
 }

@@ -12,8 +12,21 @@ public class Address {
 		private String country;
 		private String latitude;
 		private String longitude;
+		
+		
 
 	
+	/**
+		 * 
+		 */
+		public Address() {
+			
+		}
+
+
+
+
+
 	/**
 	 * @param houseNumber
 	 * @param street

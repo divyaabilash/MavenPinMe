@@ -2,6 +2,7 @@ package com.pinme.sevlets;
 
 import java.io.IOException;
 
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -35,7 +36,6 @@ public class LoginServlet extends HttpServlet {
 	public LoginServlet() {
 		
 		super();
-		Test.loadData();
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		request.getRequestDispatcher("index.html").forward(request, response);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}
 
@@ -63,15 +63,21 @@ public class LoginServlet extends HttpServlet {
 
 		if (UserController.getInstance().authenticate(username, password)) {
 			User us = UserController.getInstance().getUser(username, password);
-			HttpSession session=request.getSession();  
-		    session.setAttribute("userid",us.getId());  
+			HttpSession session=request.getSession(true); 
+			System.out.println("---------------------");
+			System.out.println(session);
+			System.out.println("---------------**-----");
+			System.out.println(us);
+			session.setAttribute("userid",us.getId()); 
+		    session.setAttribute("first_name",us.getFirstName());
+		    session.setAttribute("email", us.getEmail());
 		          
 		       
 			response.setContentType("text/html");
-			request.getRequestDispatcher("home.html").forward(request, response);
+			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}else{
 			response.setContentType("text/html");
-			request.getRequestDispatcher("index.html").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 
 	}

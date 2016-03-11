@@ -16,6 +16,12 @@ public class Event {
 	private int userId;
 	private int categoryId;
 	/**
+	 * 
+	 */
+	public Event() {
+		
+	}
+	/**
 	 * @param startDateTime
 	 * @param endDateTime
 	 * @param description

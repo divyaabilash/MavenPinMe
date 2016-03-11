@@ -15,6 +15,13 @@ public class User {
 	private String sinceInternal;
 	
 	/**
+	 * 
+	 */
+	public User() {
+		
+	}
+
+	/**
 	 * @param firstName
 	 * @param lastName
 	 * @param password

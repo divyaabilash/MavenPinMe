@@ -1,8 +1,9 @@
 <!Doctype html>
 <html>
 
-<head>
-  <link rel="import" href="import.html">
+	<head>
+  <%@ include file="import.jsp" %>
+  <%@ include file="SessionCheck.jsp" %>
 
     <title>Pin Me</title>
 </head>
@@ -47,7 +48,7 @@
 
     <footer>
         @CopyRights:Pin Me
-        <br> developed by Prathyusha Rani,Prathyusha,Shiva & Divya
+        <br> developed by Prathyusha Rani,Prathyusha,Shiva  Divya
     </footer>
     <script type="text/javascript" src="js/homepage.js"></script>
     <script>

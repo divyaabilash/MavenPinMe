@@ -33,7 +33,7 @@ public class SignUp extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("index.html").forward(request, response);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	/**
@@ -41,6 +41,8 @@ public class SignUp extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
 		String firstname = request.getParameter("firstname");
 		String lastname = request.getParameter("lastname");
 		String username = request.getParameter("username");
@@ -48,12 +50,16 @@ public class SignUp extends HttpServlet {
 		String confirmpassword = request.getParameter("confirmpassword");
 		String email = request.getParameter("email");
 		
+
 		User newUser = new User(firstname, lastname, password, email);
 		int userid = UserController.getInstance().addUser(newUser);
+		
 		HttpSession session=request.getSession();  
-	    session.setAttribute("userId",userid);  
+	    session.setAttribute("userid",userid); 
+	    session.setAttribute("first_name",firstname);
+	    session.setAttribute("email", email);
 		response.setContentType("text/html");
-		request.getRequestDispatcher("home.html").forward(request, response);
+		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
 
 }

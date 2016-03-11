@@ -1,7 +1,7 @@
 <!Doctype html>
 <html>
 <head>
-<link rel="import" href="import.html">
+  <%@ include file="import.jsp" %>
 <title>Pin Me</title>
 </head>
 <body class="padding">
@@ -10,11 +10,12 @@
 			<img src="images/icon.png" alt="pin image">
 		</div>
 		<h1 class="header">Pin Me!</h1>
-		<a href="signup.html">
-			<div class="buttons">
+		<div class="buttons">
+		<a href="signup.jsp">
+			
 				<button class="button">Sign Up</button>
-		</a>
-		</div>
+		</a></div>
+		
 	</header>
 	<section class="divider"></section>
 	<section class="login">

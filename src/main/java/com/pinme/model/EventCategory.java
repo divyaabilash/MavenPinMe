@@ -10,6 +10,8 @@ public class EventCategory {
 	private String description;
 	private String name;
 	
+	
+	
 	/**
 	 * 
 	 */
